@@ -29,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
@@ -58,7 +58,7 @@
       }
     </script>
   </head>
-  <body class="bg-ink font-serif text-linnen">
+  <body class="bg-ink font-body text-linnen">
     <a
       href="#main"
       class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-oker focus:px-4 focus:py-2 focus:font-mono focus:text-ink"
@@ -273,7 +273,7 @@
 
       <noscript>
         <p class="mx-auto max-w-4xl px-6 pb-16 text-center font-mono text-sm text-muted">
-          Mailadres: joost [at] jeau [punt] st &middot; Telefoon: +31 6 496 88 77 1
+          Mailadres: joost [at] jeau [punt] st &middot; Telefoon: +31 6 496 88 771
         </p>
       </noscript>
 
@@ -335,7 +335,7 @@
 
         // "Bellen" opent een modal met het nummer in plaats van direct een tel:-link
         // te volgen, want die doet op desktop meestal niks.
-        var formatted = [phone.slice(0, 3), phone.slice(3, 4), phone.slice(4, 7), phone.slice(7, 9), phone.slice(9, 11), phone.slice(11, 12)].join(" ");
+        var formatted = [phone.slice(0, 3), phone.slice(3, 4), phone.slice(4, 7), phone.slice(7, 9), phone.slice(9, 12)].join(" ");
         var numberEl = document.getElementById("call-modal-number");
         if (numberEl) numberEl.textContent = formatted;
 

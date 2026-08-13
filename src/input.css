@@ -2,7 +2,7 @@
 
 @theme {
   --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-  --font-serif: "IBM Plex Serif", ui-serif, Georgia, serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
 
   --color-ink: #14202a;
   --color-slate: #1e323b;
