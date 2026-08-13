@@ -11,9 +11,17 @@
   --color-linnen: #e8e1cc;
   --color-muted: #a8a48e;
   --color-teal: #6fa0ac;
+
+  /* Merkkleuren van externe contactkanalen, bewust apart van het Van Gogh-palet. */
+  --color-whatsapp: #25d366;
+  --color-signal: #3a76f0;
+  --color-linkedin: #0a66c2;
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   * {
     outline-color: var(--color-oker);
   }

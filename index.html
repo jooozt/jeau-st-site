@@ -80,10 +80,9 @@
             >LinkedIn</a
           >
           <a
-            href="#"
-            data-mail
+            href="#contact"
             class="rounded-lg border border-pigment px-4 py-2 font-mono text-sm text-linnen transition-colors hover:border-oker hover:text-oker"
-            >Mail voor een gesprek</a
+            >Neem contact op</a
           >
         </div>
       </div>
@@ -102,10 +101,9 @@
             erin hoeft te graven.
           </p>
           <a
-            href="#"
-            data-mail
+            href="#contact"
             class="mt-8 inline-block rounded-lg bg-oker px-6 py-3 font-mono font-medium text-ink transition hover:brightness-110"
-            >Mail voor een gesprek →</a
+            >Neem contact op →</a
           >
         </div>
         <div class="hidden md:block" role="presentation">
@@ -220,7 +218,7 @@
       <section aria-labelledby="cta-heading" class="border-t border-pigment bg-slate">
         <div class="mx-auto max-w-4xl px-6 py-24">
           <div class="flex flex-col items-center gap-8 text-center md:flex-row md:text-left">
-            <div class="aspect-5/7 w-28 shrink-0 overflow-hidden rounded-lg border border-pigment md:w-32">
+            <div class="aspect-5/7 w-28 shrink-0 overflow-hidden rounded-lg border border-pigment md:mr-4 md:w-32">
               <img
                 src="img/joost.jpg"
                 alt="Joost Beers"
@@ -228,21 +226,44 @@
               />
             </div>
             <div>
-              <h2 id="cta-heading" class="font-mono text-2xl text-linnen md:text-4xl">Overzicht begint met een mail.</h2>
+              <h2 id="cta-heading" class="font-mono text-2xl text-linnen md:text-4xl">De eerste stap naar overzicht</h2>
               <p class="mx-auto mt-4 max-w-[50ch] text-muted md:mx-0">Een kort gesprek over waar het nu vastloopt.</p>
-              <div class="mt-8 flex flex-wrap items-center justify-center gap-4 md:justify-start">
+              <div id="contact" class="mt-8 flex flex-wrap items-center justify-center gap-4 scroll-mt-24 md:justify-start">
                 <a
                   href="#"
                   data-mail
-                  class="inline-block rounded-lg bg-oker px-6 py-3 font-mono font-medium text-ink transition hover:brightness-110"
-                  >Stuur me een mail</a
+                  class="inline-block rounded-lg bg-oker px-4 py-2 font-mono text-sm font-medium text-ink transition hover:brightness-110"
+                  >Mail</a
+                >
+                <button
+                  type="button"
+                  data-call-open
+                  class="inline-block rounded-lg bg-teal px-4 py-2 font-mono text-sm font-medium text-ink transition hover:brightness-110"
+                >
+                  Bellen
+                </button>
+                <a
+                  href="#"
+                  data-whatsapp
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-block rounded-lg bg-whatsapp px-4 py-2 font-mono text-sm font-medium text-white transition hover:brightness-110"
+                  >WhatsApp</a
+                >
+                <a
+                  href="#"
+                  data-signal
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-block rounded-lg bg-signal px-4 py-2 font-mono text-sm font-medium text-white transition hover:brightness-110"
+                  >Signal</a
                 >
                 <a
                   href="https://www.linkedin.com/in/jfbeers"
                   target="_blank"
                   rel="noopener"
-                  class="inline-block rounded-lg border border-pigment px-6 py-3 font-mono text-linnen transition-colors hover:border-oker hover:text-oker"
-                  >Connect op LinkedIn</a
+                  class="inline-block rounded-lg bg-linkedin px-4 py-2 font-mono text-sm font-medium text-white transition hover:brightness-110"
+                  >LinkedIn</a
                 >
               </div>
             </div>
@@ -252,9 +273,33 @@
 
       <noscript>
         <p class="mx-auto max-w-4xl px-6 pb-16 text-center font-mono text-sm text-muted">
-          Mailadres: joost [at] jeau [punt] st
+          Mailadres: joost [at] jeau [punt] st &middot; Telefoon: +31 6 496 88 77 1
         </p>
       </noscript>
+
+      <dialog
+        id="call-modal"
+        aria-labelledby="call-modal-title"
+        class="m-auto max-w-sm rounded-lg border border-pigment bg-slate p-8 text-linnen backdrop:bg-ink/80"
+      >
+        <h2 id="call-modal-title" class="font-mono text-xl text-linnen">Bel Joost</h2>
+        <p id="call-modal-number" class="mt-4 font-mono text-2xl text-oker">&hellip;</p>
+        <div class="mt-6 flex flex-wrap gap-4">
+          <a
+            href="#"
+            data-call
+            class="inline-block rounded-lg bg-oker px-6 py-3 font-mono font-medium text-ink transition hover:brightness-110"
+            >Bel nu</a
+          >
+          <button
+            type="button"
+            data-call-close
+            class="inline-block rounded-lg border border-pigment px-6 py-3 font-mono text-linnen transition-colors hover:border-oker hover:text-oker"
+          >
+            Sluiten
+          </button>
+        </div>
+      </dialog>
     </main>
 
     <!-- Footer -->
@@ -266,14 +311,55 @@
     </footer>
 
     <script>
-      // Bouwt de mailto-links pas na het laden op, zodat het adres niet als platte
-      // tekst in de HTML-bron staat en door adres-oogstende spambots te lezen is.
+      // Bouwt de contactlinks pas na het laden op, zodat adres en telefoonnummer niet
+      // als platte tekst in de HTML-bron staan en door oogstende spambots te lezen zijn.
       (function () {
-        var reversed = "ts.uaej@tsooj";
-        var address = reversed.split("").reverse().join("");
+        var reversedMail = "ts.uaej@tsooj";
+        var address = reversedMail.split("").reverse().join("");
         document.querySelectorAll("[data-mail]").forEach(function (el) {
           el.href = "mailto:" + address;
         });
+
+        var reversedPhone = "17788694613+";
+        var phone = reversedPhone.split("").reverse().join("");
+        var digits = phone.replace("+", "");
+        document.querySelectorAll("[data-whatsapp]").forEach(function (el) {
+          el.href = "https://wa.me/" + digits;
+        });
+        document.querySelectorAll("[data-signal]").forEach(function (el) {
+          el.href = "https://signal.me/#p/" + phone;
+        });
+        document.querySelectorAll("[data-call]").forEach(function (el) {
+          el.href = "tel:" + phone;
+        });
+
+        // "Bellen" opent een modal met het nummer in plaats van direct een tel:-link
+        // te volgen, want die doet op desktop meestal niks.
+        var formatted = [phone.slice(0, 3), phone.slice(3, 4), phone.slice(4, 7), phone.slice(7, 9), phone.slice(9, 11), phone.slice(11, 12)].join(" ");
+        var numberEl = document.getElementById("call-modal-number");
+        if (numberEl) numberEl.textContent = formatted;
+
+        // Koppelt open-knoppen, sluit-knoppen en een klik op de achtergrond aan een
+        // <dialog>, zodat dat niet twee keer hoeft te worden uitgeschreven.
+        function wireDialog(dialogId, openSelector, closeSelector) {
+          var dialog = document.getElementById(dialogId);
+          if (!dialog) return;
+          document.querySelectorAll(openSelector).forEach(function (el) {
+            el.addEventListener("click", function () {
+              dialog.showModal();
+            });
+          });
+          dialog.querySelectorAll(closeSelector).forEach(function (el) {
+            el.addEventListener("click", function () {
+              dialog.close();
+            });
+          });
+          dialog.addEventListener("click", function (event) {
+            if (event.target === dialog) dialog.close();
+          });
+        }
+
+        wireDialog("call-modal", "[data-call-open]", "[data-call-close]");
       })();
     </script>
   </body>
