@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-serif: "IBM Plex Serif", ui-serif, Georgia, serif;
+
+  --color-ink: #14202a;
+  --color-slate: #1e323b;
+  --color-pigment: #274f5b;
+  --color-oker: #d08a45;
+  --color-linnen: #e8e1cc;
+  --color-muted: #a8a48e;
+  --color-teal: #6fa0ac;
+}
+
+@layer base {
+  * {
+    outline-color: var(--color-oker);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-oker);
+    outline-offset: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
